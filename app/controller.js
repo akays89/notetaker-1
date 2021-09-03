@@ -6,7 +6,7 @@ const notesConnection = client.db("noteTaker").collection("notes");
 
 export default {
   index() {
-    return notesConnection.find({}).toArray();
+    return notesConnection.find().toArray();
   },
   create(newNote) {
     // Returns a promise
