@@ -34,6 +34,15 @@ router.post("/notes", async (req, res) => {
   }
 });
 
+router.put("/notes/:id", async (req, res) => {
+  try {
+    const updatedNote = await noteController.update(req.params.id, req.body);
+    res.json(updatedNote);
+  } catch (error) {
+    res.status(400).send(error);
+  }
+});
+
 router.delete("/notes/:id", async (req, res) => {
   try {
     await noteController.delete(req.params.id);

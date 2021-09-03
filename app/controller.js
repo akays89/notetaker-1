@@ -12,6 +12,10 @@ export default {
     // Returns a promise
     return notesConnection.insertOne(newNote);
   },
+  update(id, updatedNote) {
+    // Returns a promise
+    return notesConnection.update({ _id: ObjectId(id) }, { $set: updatedNote });
+  },
   show(id) {
     return notesConnection.findOne(ObjectId(id));
   },
