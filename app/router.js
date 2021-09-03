@@ -43,4 +43,13 @@ router.delete("/notes/:id", async (req, res) => {
   }
 });
 
+router.delete("/notes", async (req, res) => {
+  try {
+    await noteController.deleteAll();
+    res.status(204).send();
+  } catch (error) {
+    res.status(400).send(error);
+  }
+});
+
 export default router;
